@@ -1,6 +1,88 @@
 <!DOCTYPE html>
+<html>
 <body>
     <script>
+      var points;
+   
+
+function welcomeMessage(){
+    alert("Welcome player to a SIMPLE game of Rock, Paper and Scissors\nEveryone knows the rules :\n Rock beats Scissors, Paper beats Rock...\nGood luck!!!");
+}
+
+
+      function computerPlay(){
+          //computer plays this
+       var selection = ["rock","paper","scissors"];
+
+    var random = Math.floor(Math.random()* selection.length);
+    
+    return selection [random]; 
+      }
+   
+    
+function playRound (playerSelection, computerSelection){
+        var playerSelection = prompt("Type your choice: ");
+        var computerSelection = computerPlay();
+        var realplay = playerSelection.toLowerCase();
         
+             
+       if (realplay === "rock" && computerSelection === "paper" ){
+        points = " You lost this one ";
+        computerscore++;
+       } else if (realplay === "rock" && computerSelection === "scissors"){
+        points = "Its a WIN";
+        playerscore++; 
+       } else if (realplay === "paper" && computerSelection === "rock"){
+        points = "Its a WIN";
+        playerscore++;
+       } else if (realplay === "paper" && computerSelection === "scissors"){
+        points = " You lost this one ";
+        computerscore++;
+       } else if (realplay === "scissors" && computerSelection === "rock"){
+        points = " You lost this one ";
+        computerscore++;   
+       } else if (realplay === "scissors" && computerSelection === "paper") {
+        points = "Its a WIN";
+        playerscore++;
+       } else if (realplay === computerSelection ){
+        points = "Its a draw ";
+       } else {
+            "U typed wrong!!! Try again";
+       }
+            
+
+   alert ("You played: " + playerSelection + " Computer played: " + computerSelection + "\n" + points);   
+   }
+
+var playerscore = 0;
+var computerscore = 0;
+
+function game (){
+    
+
+welcomeMessage();
+  
+playRound();
+alert ("Current score is:" + "Player: " + playerscore + " Computer: " + computerscore);
+playRound();
+alert ("Current score is:" + "Player: " + playerscore + " Computer: " + computerscore);
+playRound();
+alert ("Current score is:" + "Player: " + playerscore + " Computer: " + computerscore);
+playRound();
+alert ("Current score is:" + "Player: " + playerscore + " Computer: " + computerscore);
+playRound();
+alert ("Current score is:" + "Player: " + playerscore + " Computer: " + computerscore);
+
+if (playerscore > computerscore){
+ alert("You win");
+}else if (playerscore < computerscore){
+    alert("You lost");
+} else {
+    alert("It should be draw, but what do I know");
+}
+
+}
+     
     </script>
 </body>
+</html>
